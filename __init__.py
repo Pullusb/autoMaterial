@@ -23,8 +23,8 @@ bl_info = {
     "blender": (2, 80, 0),
     "location": "Properties > material > Settings",
     "warning": "",
-    "wiki_url": "https://github.com/Pullusb/MatNameFromColor",
-    "tracker_url": "https://github.com/Pullusb/MatNameFromColor/issues",
+    "wiki_url": "https://github.com/Pullusb/autoMat",
+    "tracker_url": "https://github.com/Pullusb/autoMat/issues",
     "category": "Material" }
     
 import bpy
