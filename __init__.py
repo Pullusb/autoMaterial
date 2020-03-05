@@ -16,13 +16,13 @@
 # ##### END GPL LICENSE BLOCK #####
 
 bl_info = {
-    "name": "autoMat",
+    "name": "autoMaterial",
     "description": "Some tools for materials handling",
     "author": "Samuel Bernou",
-    "version": (0, 0, 4),
-    "blender": (2, 80, 0),
+    "version": (0, 0, 5),
+    "blender": (2, 82, 0),
     "location": "Properties > material > Settings",
-    "warning": "",
+    "warning": "Beta version",
     "wiki_url": "https://github.com/Pullusb/autoMat",
     "tracker_url": "https://github.com/Pullusb/autoMat/issues",
     "category": "Material" }
@@ -400,21 +400,6 @@ def MaterialPlus(self, context):
     layout.operator(AM_OT_ViewportColorFromNode.bl_idname, text = "Color Node", icon='TRIA_UP_BAR').from_viewport = True
  
 
-class AM_OT_TestOperator(bpy.types.Operator):
-    bl_idname = "test.zen_test_ops"
-    bl_label = "Print Zen Code"
-    bl_description = "Print le zen dans la console (en clair)"
-    bl_options = {"REGISTER"}
-
-    def execute(self, context):
-        import this
-        txt = ''
-        for char in this.s: txt += this.d[char] if this.d.get(char) else char
-        #from codecs import decode; decode(this.s, 'rot13')
-        print('\n%s\n' % txt)
-        self.report({'INFO'}, 'Look zen console !')
-        return {"FINISHED"}
-
 
 
 ################## Registration
@@ -422,7 +407,6 @@ class AM_OT_TestOperator(bpy.types.Operator):
 classes = (
     # AM_OT_DL_webcolors_module,
     # AM_OT_AutoNameMaterial,
-    AM_OT_TestOperator,
     AM_OT_ViewportColorFromNode,
     # AM_OT_ConvertClipboardColorToName,
     )
