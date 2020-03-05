@@ -1,7 +1,7 @@
 # autoMaterial
 Blender addon - automate stuff to handle materials
 
-**[Download latest](https://github.com/Pullusb/autoMaterial.git)**
+**[Download latest](https://github.com/Pullusb/autoMaterial/archive/master.zip)**
 
 
 <!-- ### [youtube demo]() -->
