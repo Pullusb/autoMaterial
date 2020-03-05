@@ -12,6 +12,7 @@ Want to support me? [Check this page](http://www.samuelbernou.fr/donate)
 
 Primary function : Set viewport color from nodes (or set nodes color from viewport.)
 
+![set_color](https://github.com/Pullusb/images_repo/raw/master/AM_set_vp_color_from_node_and_back.gif)
 
 
 Later goal : auto name material based on color.
