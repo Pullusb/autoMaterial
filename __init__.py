@@ -23,7 +23,7 @@ bl_info = {
     "blender": (2, 91, 0),
     "location": "Properties > Material > Settings",
     "warning": "",
-    "wiki_url": "https://github.com/Pullusb/autoMat",
+    "doc_url": "https://github.com/Pullusb/autoMat",
     "tracker_url": "https://github.com/Pullusb/autoMat/issues",
     "category": "Material"}
 
