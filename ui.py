@@ -33,14 +33,14 @@ def GP_Material_handle_Panel(self, context):
 
 def register():
     bpy.types.MATERIAL_PT_viewport.append(Material_handle_Panel)
-    if bpy.app.version >= (3,0,0):
+    if bpy.app.version >= (2,93,0):
         bpy.types.MATERIAL_PT_gpencil_settings.append(GP_Material_handle_Panel)
     else:
         bpy.types.MATERIAL_PT_gpencil_options.append(GP_Material_handle_Panel)
  
 def unregister():
     bpy.types.MATERIAL_PT_viewport.remove(Material_handle_Panel)
-    if bpy.app.version >= (3,0,0):
+    if bpy.app.version >= (2,93,0):
         bpy.types.MATERIAL_PT_gpencil_settings.remove(GP_Material_handle_Panel)
     else:
         bpy.types.MATERIAL_PT_gpencil_options.remove(GP_Material_handle_Panel)

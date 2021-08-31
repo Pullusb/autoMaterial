@@ -1,8 +1,12 @@
 ## Changelog
 
+0.2.0
+
+- feat: material incremental clone (duplication) remover
+- fix: bad register in Blender 2.93.0
+
 0.1.1
 
-- fix: bad register in Blender 3.0.0
 - code: fix bl_infos and typos
 
 0.1.0
