@@ -25,7 +25,7 @@ When getting from node, the node tree is reverse climbed until it found a "relev
 ![auto_rename](https://github.com/Pullusb/images_repo/raw/master/AM_material_auto_renaming.png)
 
 
-Applied on selected objects. There is an option to apply on all slots instaed of active only
+Applied on selected objects. There is an option to apply on all slots instead of active only
 
 > On grease pencil material the fill color is always taken if activated  
 

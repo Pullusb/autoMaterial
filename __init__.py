@@ -19,7 +19,7 @@ bl_info = {
     "name": "Auto material",
     "description": "Some materials handling tools",
     "author": "Samuel Bernou",
-    "version": (0, 1, 0),
+    "version": (0, 1, 1),
     "blender": (2, 91, 0),
     "location": "Properties > Material > Settings",
     "warning": "",

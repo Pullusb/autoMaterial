@@ -17,6 +17,9 @@ def get_addon_prefs():
 
 ### --- Object Color <-> Material Color 
 
+#-# seem like it's needed to be passed to linear in blender for correct result
+#-# https://blender.stackexchange.com/questions/158896/how-set-hex-in-rgb-node-python/158902
+
 def srgb_to_linearrgb(c):
     if   c < 0:       return 0
     elif c < 0.04045: return c/12.92
@@ -27,9 +30,6 @@ def hex_to_rgb(h):
     suitable for use in an ``rgb()`` triplet specifying that color.
     '''
 
-    #-# seem like it's needed to be passed to linear in blender ofr correct result
-    #-# https://blender.stackexchange.com/questions/158896/how-set-hex-in-rgb-node-python/158902
-
     h=int(h[1:], 16)
     r = (h & 0xff0000) >> 16
     g = (h & 0x00ff00) >> 8
@@ -39,7 +39,7 @@ def hex_to_rgb(h):
 
 def get_color_name(rgb, color_dict):
     '''Get a rgb[a] (tuple/list) or an hex (str)
-    return nearest color name found in database
+    return nearest color name found in passed color database
     '''
     if isinstance(rgb, str): # must be an hexa code
         rgb = rgb if rgb.clip.startswith('#') else '#'+rgb
