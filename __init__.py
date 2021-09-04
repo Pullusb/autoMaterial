@@ -19,7 +19,7 @@ bl_info = {
     "name": "Auto material",
     "description": "Some materials handling tools",
     "author": "Samuel Bernou",
-    "version": (0, 2, 0),
+    "version": (0, 3, 0),
     "blender": (2, 91, 0),
     "location": "Properties > Material > Settings",
     "warning": "",
@@ -30,6 +30,7 @@ bl_info = {
 from . import set_color
 from . import auto_rename
 from . import clean_slots
+from . import clean_gp_slots
 from . import ui
 
 import bpy
@@ -56,13 +57,15 @@ def register():
     auto_rename.register()
     set_color.register()
     clean_slots.register()
+    clean_gp_slots.register()
     ui.register()
 
 def unregister():
     ui.unregister()
     auto_rename.unregister()
-    set_color.unregister()
+    clean_gp_slots.unregister()
     clean_slots.unregister()
+    set_color.unregister()
 
     bpy.utils.unregister_class(AM_preferences)
  

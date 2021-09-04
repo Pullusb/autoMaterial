@@ -1,5 +1,11 @@
 ## Changelog
 
+0.3.0
+
+- feat: material cleaner's _similarity check_ is more robust, also check nodes values
+- feat: add Gpencil material cleaner in materials submenu (copy of `gp toolbox`'s operator)
+    - don't register if gp toolbox addon is active to avoid duplicate
+
 0.2.0
 
 - feat: material incremental clone (duplication) remover

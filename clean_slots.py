@@ -1,4 +1,5 @@
 import bpy, re
+import numpy as np
 
 # TODO option : Delete duplication if it isn't assigned at all (a bit hazardous)
 
@@ -83,12 +84,18 @@ def mats_similarity_check(a, b, check_settings=True, check_node_tree=True):
                 # print(f'type : {na.type} != {nb.type}')
                 return
 
-            ### Value approximation is problematic for similarity checking
-            # for i1, i2 in zip(na.inputs, nb.inputs):
-            #     if not hasattr(i1, 'default_value'): 
-            #         continue
-            #     if i1.default_value != i2.default_value:
-            #         print(f'{i1.name} {i1.default_value} != {i2.default_value}')
+            for i1, i2 in zip(na.inputs, nb.inputs):
+                if i1.is_linked != i2.is_linked:
+                    return
+                if i1.is_linked:
+                    continue
+                if not hasattr(i1, 'default_value'): 
+                    continue
+
+                ## use isclose since value approximation break similarity checking
+                if not np.isclose(i1.default_value, i2.default_value).all():
+                    print(f'{a.name} > {na.name} > {i1.name}: {i1.default_value} != {i2.default_value} ({b.name})')
+                    return 
 
     return True
 
@@ -169,7 +176,7 @@ class AM_OT_replace_mat_duplication(bpy.types.Operator):
 
     skip_different_materials : bpy.props.BoolProperty(name="Skip Different Material", 
         description="Will not affect duplication if settings/node_tree is different",
-        default=False)
+        default=True)
     
     skip_fake_user : bpy.props.BoolProperty(name="Skip Fake User", 
         description="Duplication with fake user will be untouched, even if they are identical",
@@ -235,8 +242,6 @@ class AM_OT_replace_mat_duplication(bpy.types.Operator):
         # if self.remove_empty_slots:
         #     self.delete_empty_material_slots(ob)
 
-        print('self.target: ', self.target)
-        print('self.skip_different_materials: ', self.skip_different_materials)
         info = replace_increment_duplication(targets=self.target, similar_check=self.skip_different_materials, skip_fake_user=self.skip_fake_user, force_delete=self.force_delete)
         self.report({'INFO'}, f'{info} material slot replaced')
         
@@ -249,8 +254,7 @@ class AM_OT_replace_mat_duplication(bpy.types.Operator):
 
 
 def material_clean_menu(self, context):
-    """Palette menu to append in existing menu"""
-    # GPENCIL_MT_material_context_menu
+    '''To append to MATERIAL_MT_context_menu'''
     layout = self.layout
     layout.operator("materials.replace_mat_duplication", text='Remove Duplications', icon='NODE_MATERIAL')
 
